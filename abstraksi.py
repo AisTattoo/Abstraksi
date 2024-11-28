@@ -1,7 +1,18 @@
-class Rumah:
-    def __init__(self, alamat="", atap=""):
-        self.alamat = alamat
-        self.atap = atap
+from abc import ABC, abstractmethod
+
+class Rumah(ABC):
+
+    @abstractmethod
+    def display(self):
+        pass
+
+    @abstractmethod
+    def bentuk(self):
+        pass
+
+    @abstractmethod
+    def fasilitas(self):
+        pass
 
     def deskripsi(self):
         return "Ini adalah sebuah rumah."
@@ -26,13 +37,19 @@ class Villa(Rumah):
     def fasilitas(self):
         return "Villa ini memiliki taman pribadi dan area BBQ."
 
-apartemen_jakarta = Apartemen("Jl. Sudirman No. 10, Jakarta", "Coklat")
+# Membuat objek Apartemen
+apartemen_jakarta = Apartemen()
+apartemen_jakarta.alamat = "Jl. Sudirman No. 10, Jakarta"
+apartemen_jakarta.atap = "Coklat"
 print(apartemen_jakarta.deskripsi())
 print(apartemen_jakarta.display())
 print(apartemen_jakarta.bentuk())
 print(apartemen_jakarta.fasilitas())
 
-villa_bali = Villa("Jl. Diponegoro No. 15, Bali", "Hitam")
+# Membuat objek Villa
+villa_bali = Villa()
+villa_bali.alamat = "Jl. Diponegoro No. 15, Bali"
+villa_bali.atap = "Hitam"
 print(villa_bali.deskripsi())
 print(villa_bali.display())
 print(villa_bali.bentuk())
